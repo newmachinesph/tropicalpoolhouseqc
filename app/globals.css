@@ -1,0 +1,330 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+
+  /* Brand Purple palette (from logo #1F0E2B) */
+  --color-sage-50: #FAF8FC;
+  --color-sage-100: #F0EAF5;
+  --color-sage-200: #DDD0E8;
+  --color-sage-300: #BEA2CE;
+  --color-sage-400: #9A73B0;
+  --color-sage-500: #7A529A;
+  --color-sage-600: #5C3880;
+  --color-sage-700: #3D2056;
+  --color-sage-800: #1F0E2B;  /* Logo exact */
+  --color-sage-900: #150920;
+
+  /* Warm neutral palette (white-based for light mode) */
+  --color-cream-50: #FFFFFF;
+  --color-cream-100: #FDF8F3;
+  --color-cream-200: #E8DDD4;
+  --color-cream-300: #C5B5A5;
+  --color-cream-400: #A08F7E;
+  --color-cream-500: #7D6C5E;
+  --color-cream-600: #5F4F40;
+  --color-cream-700: #473A2D;
+  --color-cream-800: #312720;
+  --color-cream-900: #1E1814;
+
+  /* Gold / Amber accent (from logo #FBAD41, #F69C42) */
+  --color-orange-400: #FBAD41;
+  --color-orange-500: #F69C42;
+  --color-orange-600: #D98A30;
+
+  /* Magenta / Pink CTA (from logo #CE175A, #D52A55) */
+  --color-rose-50: #FFF0F3;
+  --color-rose-100: #FFE0E8;
+  --color-rose-200: #FFBDCD;
+  --color-rose-300: #FF8FAA;
+  --color-rose-400: #E9527F;
+  --color-rose-500: #D52A55;
+  --color-rose-600: #CE175A;
+  --color-rose-700: #A8123F;
+  --color-rose-800: #800E30;
+  --color-rose-900: #580A22;
+
+  /* Neutral / text */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f0f0f0;
+  --color-neutral-200: #d9d9d9;
+  --color-neutral-300: #a3a3a3;
+  --color-neutral-400: #737373;
+  --color-neutral-500: #525252;
+  --color-neutral-600: #404040;
+  --color-neutral-700: #333333;
+  --color-neutral-800: #1f1f1f;
+  --color-neutral-900: #141414;
+}
+
+/* Lodgify search bar widget */
+:root {
+  --ldg-psb-background: transparent;
+  --ldg-psb-border-radius: 0;
+  --ldg-psb-box-shadow: none;
+  --ldg-psb-padding: 0;
+  --ldg-psb-input-background: rgba(255, 255, 255, 0.05);
+  --ldg-psb-button-border-radius: 0.75em;
+  --ldg-psb-color-primary: #F69C42;
+  --ldg-psb-color-primary-lighter: #FBAD41;
+  --ldg-psb-color-primary-darker: #D98A30;
+  --ldg-psb-color-primary-contrast: #ffffff;
+  --ldg-semantic-color-primary: #F69C42;
+  --ldg-semantic-color-primary-lighter: #FBAD41;
+  --ldg-semantic-color-primary-darker: #D98A30;
+  --ldg-semantic-color-primary-contrast: #ffffff;
+  --ldg-component-modal-z-index: 999;
+}
+
+#lodgify-search-bar,
+#lodgify-search-bar > div,
+#lodgify-search-bar > div > section {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Force Lodgify widget to stack vertically */
+section#portable-search-bar,
+section#portable-search-bar.css-jj122v {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* All direct children full width */
+#portable-search-bar > *,
+#portable-search-bar > div,
+#portable-search-bar > button,
+#portable-search-bar > a {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: none !important;
+  text-align: left !important;
+  border-radius: 12px !important;
+  box-sizing: border-box !important;
+}
+
+#portable-search-bar * {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Dark input styling for all fields */
+#portable-search-bar > div,
+#portable-search-bar > button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  min-height: 56px !important;
+  transition: background 0.2s !important;
+}
+
+#portable-search-bar > div:hover,
+#portable-search-bar > button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Labels */
+#portable-search-bar label {
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Input text color */
+#portable-search-bar span,
+#portable-search-bar p,
+#portable-search-bar input {
+  color: #fff !important;
+}
+
+#portable-search-bar svg {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Remove black outline/border on all widget elements */
+#portable-search-bar *,
+#portable-search-bar *:focus,
+#portable-search-bar *:active,
+#portable-search-bar *:focus-visible,
+#portable-search-bar [data-state="open"] {
+  outline: none !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Location wrapper — remove extra height so it matches sibling buttons */
+#portable-search-bar > div {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Location dropdown */
+#portable-search-bar > div > button {
+  padding: 8px 16px !important;
+  background: transparent !important;
+  border: none !important;
+  min-height: auto !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Date picker button */
+#portable-search-bar > button:not(.styled-override) {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+#portable-search-bar > button:not(.styled-override) > div {
+  padding: 12px 16px !important;
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+#portable-search-bar > button:not(.styled-override) > div + div,
+#portable-search-bar > button:not(.styled-override) > div.right {
+  border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+#portable-search-bar > button:not(.styled-override) input {
+  background: transparent !important;
+  color-scheme: dark !important;
+}
+
+/* Guests trigger */
+#portable-search-bar > button[data-testid="guests-breakdown-trigger"] {
+  padding: 12px 16px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+#portable-search-bar > button[data-testid="guests-breakdown-trigger"] .value-wrapper {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+/* Search button */
+#portable-search-bar > a {
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  margin-top: 4px !important;
+  background: var(--color-orange-500) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 8px 24px rgba(246, 156, 66, 0.3) !important;
+}
+
+#portable-search-bar > a:hover {
+  background: var(--color-orange-600) !important;
+}
+
+#portable-search-bar > a svg {
+  color: #fff !important;
+}
+
+/* Guests dropdown popover (Radix portal) */
+[data-radix-popper-content-wrapper] {
+  min-width: 380px !important;
+}
+
+[data-radix-popper-content-wrapper] > * {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-sage-800);
+  background: #FFFFFF;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-400);
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.glass-dark {
+  background: rgba(21, 9, 32, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* Gradient text — warm logo gradient (gold → magenta) */
+.text-gradient {
+  background: linear-gradient(135deg, #FBAD41 0%, #EE7948 35%, #E3504F 65%, #CE175A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(251, 173, 65, 0.12) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Noise texture overlay */
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
